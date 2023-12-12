@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play AI Story.</tw-noscript></noscript></tw-story>
-<tw-storydata name="AI Story" startnode="2" creator="Twine" creator-version="2.8.0" format="Harlowe" format-version="3.3.7" ifid="555B06D5-15A7-4B70-98D7-EDF1EB79DC22" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Noun1" tags="" position="475,50" size="100,100">(set: $die to (random: 1, 6))
+<tw-storydata name="AI Story" startnode="9" creator="Twine" creator-version="2.8.0" format="Harlowe" format-version="3.3.7" ifid="555B06D5-15A7-4B70-98D7-EDF1EB79DC22" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Noun1" tags="" position="475,50" size="100,100">(set: $die to (random: 1, 6))
 $noun1 $adverb $verb $adjective $noun2
 (if: $die is 1)[(set:$noun1 to &quot;A knight&quot;)]
 (if: $die is 2)[(set:$noun1 to &quot;The Queen&quot;)]
@@ -18,13 +18,14 @@ $noun1 $adverb $verb $adjective $noun2
 (if: $die is 5)[(set:$noun1 to &quot;Joe Biden&quot;)]
 (if: $die is 6)[(set:$noun1 to &quot;A slice of cake&quot;)]
 Your noun is &#39;&#39;$noun1&#39;&#39;
-[[Adverb]]</tw-passagedata><tw-passagedata pid="2" name="Start" tags="" position="350,50" size="100,100">(set: $noun1 to &quot;&quot;)
+[[Adverb]]</tw-passagedata><tw-passagedata pid="2" name="Story 1" tags="" position="350,50" size="100,100">(set:$sentencecount to 1)
+(set: $noun1 to &quot;&quot;)
 (set: $adverb to &quot;&quot;)
 (set: $verb to &quot;&quot;)
 (set: $adjective to &quot;&quot;)
 (set: $noun2 to &quot;&quot;)
 
-Roll a dice to create a short story
+Roll a dice to create a short on sentence story
 First start with a noun
 
 [[Get Started-&gt;Noun1]]
@@ -55,7 +56,7 @@ $noun1 $adverb $verb $adjective $noun2
 (if: $die is 5)[(set:$adjective to &quot;angry&quot;)]
 (if: $die is 6)[(set:$adjective to &quot;tiny&quot;)]
 Your adjective is &#39;&#39;$adjective&#39;&#39;
-[[Noun2]]</tw-passagedata><tw-passagedata pid="6" name="Noun2" tags="" position="975,50" size="100,100">(set: $die to (random: 1, 6))
+[[Noun1.2]]</tw-passagedata><tw-passagedata pid="6" name="Noun1.2" tags="" position="975,50" size="100,100">(set: $die to (random: 1, 6))
 $noun1 $adverb $verb $adjective $noun2
 (if: $die is 1)[(set:$noun2 to &quot;fox&quot;)]
 (if: $die is 2)[(set:$noun2 to &quot;aligator&quot;)]
@@ -64,14 +65,18 @@ $noun1 $adverb $verb $adjective $noun2
 (if: $die is 5)[(set:$noun2 to &quot;Teacher&quot;)]
 (if: $die is 6)[(set:$noun2 to &quot;Ghostbusters&quot;)]
 Your 2nd noun is &#39;&#39;$noun2&#39;&#39;
-[[Finish]]</tw-passagedata><tw-passagedata pid="7" name="Finish" tags="" position="1100,50" size="100,100">Final Short Story
+[[Finish]]</tw-passagedata><tw-passagedata pid="7" name="Finish" tags="" position="1300,125" size="100,100">Final Short Story
 ###$noun1 $adverb $verb $adjective $noun2
 [[Go again-&gt;Start]] 
 
 
 
-This story is not generated in a way that is too different from regular AI in which the AI chooses randomly on what to give as an output based on given instructions. Neither the AI, or this generator knows what the words they display are, or what they mean leading to nonsence stories such as this one.
-[[More explaination]]</tw-passagedata><tw-passagedata pid="8" name="More explaination" tags="" position="1100,175" size="100,100">Final Short Story
+This story is not generated in a way that is too different from regular AI in which the main underlying function is a randomly selected set of numbers. The difference comes in how those numbers are influenced into the desired result.
+
+[[More explaination]]
+[[My instructions]]
+[[Their instructions]]</tw-passagedata><tw-passagedata pid="8" name="More explaination" tags="" position="1525,125" size="100,100">
+Final Short Story
 **$noun1 $adverb $verb $adjective $noun2**
 
 Asking ChatGPT to give me a sentence in the same format it gave me 
@@ -80,11 +85,169 @@ Asking ChatGPT to give me a sentence in the same format it gave me
 
 &#39;&#39;The stealthy cat gracefully stalked its elusive prey through the dimly lit alley.&#39;&#39;
 
-This appears to be more pointed than the story you just created, however ChatGPT is trained on a large amount of stories and works. The story you just created has only 6 options for each element of the story that I chose and picks completely randomly. GPT refines it&#39;s story by rewarding and refining the AI&#39;s answers till it better fits a given prompt. 
+This appears to be more pointed than the story you just created, however ChatGPT is trained on a large amount of stories and works. The story you just created has only 6 options for each element of the story that I chose and it picks completely randomly. 
+
+Neither this generator or chatGPT knows what either of these stories mean, and are just made essentially via thrown dice.
 
 [[Back-&gt;Finish]] 
 &lt;a href = &quot;https://chat.openai.com/&quot;&gt;ChatGpt&lt;/a&gt;
-</tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="9" name="Start" tags="" position="200,175" size="100,100">(set:$sentencecount to 0)
+How long should your generated story be?
+
+[[one sentence-&gt;Story 1]]
+[[two sentences-&gt;Story 2]]</tw-passagedata><tw-passagedata pid="10" name="Story 2" tags="" position="350,300" size="100,100">(set:$sentencecount to 2)
+(set: $noun1 to &quot;&quot;)
+(set: $adverb to &quot;&quot;)
+(set: $verb to &quot;&quot;)
+(set: $adjective to &quot;&quot;)
+(set: $noun2 to &quot;&quot;)
+
+Roll a dice to create a short on sentence story
+First start with a noun
+
+[[Get Started-&gt;Noun2.1]]
+
+(set: $noun3 to &quot;&quot;)
+(set: $adverb2 to &quot;&quot;)
+(set: $verb2 to &quot;&quot;)
+(set: $adjective2 to &quot;&quot;)
+(set: $noun4 to &quot;&quot;)</tw-passagedata><tw-passagedata pid="11" name="Noun2.1" tags="" position="475,300" size="100,100">(set: $die to (random: 1, 6))
+$noun1 $adverb $verb $adjective $noun2
+(if: $die is 1)[(set:$noun1 to &quot;A knight&quot;)]
+(if: $die is 2)[(set:$noun1 to &quot;The Queen&quot;)]
+(if: $die is 3)[(set:$noun1 to &quot;A bear&quot;)]
+(if: $die is 4)[(set:$noun1 to &quot;The King&quot;)]
+(if: $die is 5)[(set:$noun1 to &quot;Joe Biden&quot;)]
+(if: $die is 6)[(set:$noun1 to &quot;A slice of cake&quot;)]
+Your noun is &#39;&#39;$noun1&#39;&#39;
+[[Adverb2]]</tw-passagedata><tw-passagedata pid="12" name="Adverb2" tags="" position="600,300" size="100,100">(set: $die to (random: 1, 6))
+$noun1 $adverb $verb $adjective $noun2
+(if: $die is 1)[(set:$adverb to &quot;playfully&quot;)]
+(if: $die is 2)[(set:$adverb to &quot;quickly&quot;)]
+(if: $die is 3)[(set:$adverb to &quot;powerfully&quot;)]
+(if: $die is 4)[(set:$adverb to &quot;hungrily&quot;)]
+(if: $die is 5)[(set:$adverb to &quot;terribly&quot;)]
+(if: $die is 6)[(set:$adverb to &quot;awfully&quot;)]
+Your adverb is &#39;&#39;$adverb&#39;&#39;
+[[Verb2]]</tw-passagedata><tw-passagedata pid="13" name="Verb2" tags="" position="725,300" size="100,100">(set: $die to (random: 1, 6))
+$noun1 $adverb $verb $adjective $noun2
+(if: $die is 1)[(set:$verb to &quot;runs from the&quot;)]
+(if: $die is 2)[(set:$verb to &quot;fights the&quot;)]
+(if: $die is 3)[(set:$verb to &quot;eats the&quot;)]
+(if: $die is 4)[(set:$verb to &quot;plays with the&quot;)]
+(if: $die is 5)[(set:$verb to &quot;cooks the&quot;)]
+(if: $die is 6)[(set:$verb to &quot;sits next to the&quot;)]
+Your verb is &#39;&#39;$verb&#39;&#39;
+[[Adjective2]]</tw-passagedata><tw-passagedata pid="14" name="Adjective2" tags="" position="850,300" size="100,100">(set: $die to (random: 1, 6))
+$noun1 $adverb $verb $adjective $noun2
+(if: $die is 1)[(set:$adjective to &quot;quick&quot;)]
+(if: $die is 2)[(set:$adjective to &quot;dim&quot;)]
+(if: $die is 3)[(set:$adjective to &quot;hungry&quot;)]
+(if: $die is 4)[(set:$adjective to &quot;loud&quot;)]
+(if: $die is 5)[(set:$adjective to &quot;angry&quot;)]
+(if: $die is 6)[(set:$adjective to &quot;tiny&quot;)]
+Your adjective is &#39;&#39;$adjective&#39;&#39;
+[[Noun2.2]]</tw-passagedata><tw-passagedata pid="15" name="Noun2.2" tags="" position="975,300" size="100,100">(set: $die to (random: 1, 6))
+$noun1 $adverb $verb $adjective $noun2
+(if: $die is 1)[(set:$noun2 to &quot;fox&quot;)]
+(if: $die is 2)[(set:$noun2 to &quot;aligator&quot;)]
+(if: $die is 3)[(set:$noun2 to &quot;slice of pie&quot;)]
+(if: $die is 4)[(set:$noun2 to &quot;Kool-Aid Man&quot;)]
+(if: $die is 5)[(set:$noun2 to &quot;Teacher&quot;)]
+(if: $die is 6)[(set:$noun2 to &quot;Ghostbusters&quot;)]
+Your 2nd noun is &#39;&#39;$noun2&#39;&#39;
+[[Continue]]</tw-passagedata><tw-passagedata pid="16" name="Continue" tags="" position="1100,300" size="100,100">
+$noun1 $adverb $verb $adjective $noun2. While ...
+
+[[Continue to rest of sentence-&gt;Noun2.3]]</tw-passagedata><tw-passagedata pid="17" name="Noun2.3" tags="" position="475,450" size="100,100">(set: $die to (random: 1, 6))
+$noun1 $adverb $verb $adjective $noun2 While $noun3 $adverb2 $verb2 $adjective3 $noun3
+(if: $die is 1)[(set:$noun3 to $noun1)]
+(if: $die is 2)[(set:$noun3 to &quot;Freddy Mercury&quot;)]
+(if: $die is 3)[(set:$noun3 to &quot;A piece of pizza&quot;)]
+(if: $die is 4)[(set:$noun3 to &quot;A chicken nugget&quot;)]
+(if: $die is 5)[(set:$noun3 to &quot;Australia as a whole&quot;)]
+(if: $die is 6)[(set:$noun3 to &quot;A sentient blanket&quot;)]
+Your noun is &#39;&#39;$noun3&#39;&#39;
+[[Adverb2.2]]</tw-passagedata><tw-passagedata pid="18" name="Adverb2.2" tags="" position="600,450" size="100,100">(set: $die to (random: 1, 6))
+$noun1 $adverb $verb $adjective $noun2 While $noun3 $adverb2 $verb2 $adjective2 $noun4
+(if: $die is 1)[(set:$adverb2 to &quot;wistfully&quot;)]
+(if: $die is 2)[(set:$adverb2 to &quot;slowly&quot;)]
+(if: $die is 3)[(set:$adverb2 to &quot;weakly&quot;)]
+(if: $die is 4)[(set:$adverb2 to &quot;poorly&quot;)]
+(if: $die is 5)[(set:$adverb2 to &quot;comedically&quot;)]
+(if: $die is 6)[(set:$adverb2 to &quot;lazily&quot;)]
+Your adverb is &#39;&#39;$adverb2&#39;&#39;
+[[Verb2.2]]</tw-passagedata><tw-passagedata pid="19" name="Verb2.2" tags="" position="725,450" size="100,100">(set: $die to (random: 1, 6))
+$noun1 $adverb $verb $adjective $noun2 While $noun3 $adverb2 $verb2 $adjective2 $noun4
+(if: $die is 1)[(set:$verb2 to &quot;runs towards the&quot;)]
+(if: $die is 2)[(set:$verb2 to &quot;battles the&quot;)]
+(if: $die is 3)[(set:$verb2 to &quot;devours the&quot;)]
+(if: $die is 4)[(set:$verb2 to &quot;toys with the&quot;)]
+(if: $die is 5)[(set:$verb2 to &quot;bakes the&quot;)]
+(if: $die is 6)[(set:$verb2 to &quot;sleeps next to the&quot;)]
+Your verb is &#39;&#39;$verb2&#39;&#39;
+[[Adjective2.2]]</tw-passagedata><tw-passagedata pid="20" name="Adjective2.2" tags="" position="850,450" size="100,100">(set: $die to (random: 1, 6))
+$noun1 $adverb $verb $adjective $noun2 While $noun3 $adverb2 $verb2 $adjective2 $noun4
+(if: $die is 1)[(set:$adjective2 to &quot;lazy&quot;)]
+(if: $die is 2)[(set:$adjective2 to &quot;smart&quot;)]
+(if: $die is 3)[(set:$adjective2 to &quot;starved&quot;)]
+(if: $die is 4)[(set:$adjective2 to &quot;quiet&quot;)]
+(if: $die is 5)[(set:$adjective2 to &quot;furious&quot;)]
+(if: $die is 6)[(set:$adjective2 to &quot;large&quot;)]
+Your adjective is &#39;&#39;$adjective2&#39;&#39;
+[[Noun2.4]]</tw-passagedata><tw-passagedata pid="21" name="Noun2.4" tags="" position="975,450" size="100,100">(set: $die to (random: 1, 6))
+$noun1 $adverb $verb $adjective $noun2 While $noun3 $adverb2 $verb2 $adjective2 $noun4
+(if: $die is 1)[(set:$noun4 to &quot;llama&quot;)]
+(if: $die is 2)[(set:$noun4 to &quot;pencil&quot;)]
+(if: $die is 3)[(set:$noun4 to &quot;wizard&quot;)]
+(if: $die is 4)[(set:$noun4 to &quot;bigfoot&quot;)]
+(if: $die is 5)[(set:$noun4 to &quot;popcorn machine&quot;)]
+(if: $die is 6)[(set:$noun4 to &quot;zombie&quot;)]
+Your 2nd noun is &#39;&#39;$noun4&#39;&#39;
+[[Finish 2]]</tw-passagedata><tw-passagedata pid="22" name="Finish 2" tags="" position="1300,375" size="100,100">$noun1 $adverb $verb $adjective $noun2 While $noun3 $adverb2 $verb2 $adjective2 $noun4
+[[Go again-&gt;Start]] 
+
+
+
+This story is not generated in a way that is too different from regular AI in which the main underlying function is a randomly selected set of numbers. The difference comes in how those numbers are influenced into the desired result.
+
+[[More explaination-&gt;More explaination2]]
+[[My instructions]]
+[[Their instructions]]</tw-passagedata><tw-passagedata pid="23" name="More explaination2" tags="" position="1525,375" size="100,100">
+Final Short Story
+**$noun1 $adverb $verb $adjective $noun2. While $noun3 $adverb2 $verb2 $adjective2 $noun4**
+
+Asking ChatGPT to give me a sentence in the same format it gave me 
+(css:&quot;font-size:50%;&quot;)[Prompt: give me a two sentence story that follows the format of noun adverb verb adjective noun. While noun adverb verb adjective noun]
+
+
+&#39;&#39;The energetic puppy playfully chased its fluffy tail in the sunlit garden, while the contented cat lazily napped beneath the swaying branches.&#39;&#39;
+
+This appears to be more pointed than the story you just created, however ChatGPT is trained on a large amount of stories and works. The story you just created has only 6 options for each element of the story that I chose and it picks completely randomly. 
+
+Neither this generator or chatGPT knows what either of these stories mean, and are just made essentially via thrown dice.
+
+[[Back-&gt;Finish 2]] 
+&lt;a href = &quot;https://chat.openai.com/&quot;&gt;ChatGpt&lt;/a&gt;
+</tw-passagedata><tw-passagedata pid="24" name="My instructions" tags="" position="1225,250" size="100,100">&lt;img src = https://i.imgur.com/T0FFtwD.png&gt;
+
+My instructions to create the image does not involve a weighted final answer, just a randomly selected word that corresponds with the roll.
+
+(if: $sentencecount is 2)[
+[[Back-&gt;Finish 2]] 
+]
+(if: $sentencecount is 1)[
+[[Back-&gt;Finish]] 
+]</tw-passagedata><tw-passagedata pid="25" name="Their instructions" tags="" position="1375,250" size="100,100">Most AI instructions involve of completely randomized answer that is influenced by weights. These weights are determined by both the dataset and the given prompt to get a result that is close enough to the desired result.
+
+[[Back-&gt;Finish]] 
+
+(if: $sentencecount is 2)[
+[[Back-&gt;Finish 2]] 
+]
+(if: $sentencecount is 1)[
+[[Back-&gt;Finish]] 
+]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
